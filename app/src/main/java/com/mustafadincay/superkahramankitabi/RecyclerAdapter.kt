@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.recycle_row.view.*
 
-class RecyclerAdapter (val kahramanListesi : ArrayList<String>, val kahramanGorseller: ArrayList<Bitmap>) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>() {
+class RecyclerAdapter (val kahramanListesi : ArrayList<String>, val kahramanGorseller: ArrayList<Int>) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>() {
     class SuperKahramanVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -24,8 +24,11 @@ class RecyclerAdapter (val kahramanListesi : ArrayList<String>, val kahramanGors
         holder.itemView.setOnClickListener {
             val intent = Intent (holder.itemView.context,tanitimActivity::class.java)
             intent.putExtra("superKahramanIsmi", kahramanListesi.get(position))
+            intent.putExtra("superKahramanGorseli",kahramanGorseller.get(position))
+            /*
             val singleton = SingletonClass.SecilenKahraman
             singleton.gorsel = kahramanGorseller.get(position)
+            */
             holder.itemView.context.startActivity(intent)
         }
     }

@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         superkahramanIsimleri.add("Batman")
         superkahramanIsimleri.add("Superman")
 
+        /*
+        //VERİMSİZ TANIMLAMA
 
         val ironmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.ironman)
         val batmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.batman)
@@ -27,10 +29,22 @@ class MainActivity : AppCompatActivity() {
         superKahramanGorseller.add(batmanBitmap)
         superKahramanGorseller.add(supermanBitmap)
 
+        */
+        //VERİMLİ TANIMLAMA
+
+        val ironmanDrawableId = R.drawable.ironman
+        val batmanDrawableId = R.drawable.batman
+        val supermanDrawableId = R.drawable.superman
+
+        var superKahramanDrawableListesi = ArrayList<Int>()
+        superKahramanDrawableListesi.add(ironmanDrawableId)
+        superKahramanDrawableListesi.add(batmanDrawableId)
+        superKahramanDrawableListesi.add(supermanDrawableId)
+
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
 
-        val adapter = RecyclerAdapter(superkahramanIsimleri, superKahramanGorseller)
+        val adapter = RecyclerAdapter(superkahramanIsimleri, superKahramanDrawableListesi)
         recyclerView.adapter = adapter
 
     }
